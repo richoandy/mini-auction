@@ -1,0 +1,15 @@
+POST http://localhost:3800/user/signup
+{
+    "email": "test-email.com",
+    "password": "PLAIN PASSWORD",
+    "first_name": "first_name_test",
+    "last_name": "last_name_test",
+    "balance": 500000
+}
+
+POST http://localhost:3800/user/signin
+{
+    "email": "test-email.com",
+    "password": "PLAIN PASSWORD"
+}
+
