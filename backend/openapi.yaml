@@ -57,3 +57,59 @@ paths:
       responses:
         '200':
           description: OK
+  /bid:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                price:
+                  type: number
+                product_id:
+                  type: string
+              required:
+                - price
+                - product_id
+      responses:
+        '200':
+          description: OK
+  /product:
+    get:
+      parameters:
+        - in: query
+          name: online_product_only
+          schema:
+            type: string
+            default: yes
+      responses:
+        '200':
+          description: OK
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                starting_price:
+                  type: number
+                time_window:
+                  type: number
+              required:
+                - name
+                - starting_price
+                - time_window
+      responses:
+        '200':
+          description: OK
+  /product/close-the-bids:
+    post:
+      responses:
+        '200':
+          description: OK

@@ -66,19 +66,19 @@ import BidHttpDelivery from './domain/bid/delivery/http';
      * UNCOMMENT ONCE ALL ENDPOINTS ADDED TO OPENAPI.YAML 
     */
 
-    // app.use(
-    //     OpenApiValidator.middleware({
-    //       apiSpec: './openapi.yaml'
-    //     }),
-    // );
+    app.use(
+        OpenApiValidator.middleware({
+          apiSpec: './openapi.yaml'
+        }),
+    );
 
-    // app.use((err, req, res, next) => {
-    //     // format error
-    //     res.status(err.status || 500).json({
-    //         message: err.message,
-    //         errors: err.errors,
-    //     });
-    // });
+    app.use((err, req, res, next) => {
+        // format error
+        res.status(err.status || 500).json({
+            message: err.message,
+            errors: err.errors,
+        });
+    });
 
     const userRepo = new UserRepo(dbConnection);
     const productRepo = new ProductRepo(dbConnection);
