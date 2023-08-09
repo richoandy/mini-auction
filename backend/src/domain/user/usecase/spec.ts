@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'; dotenv.config();
+import * as jwt from 'jsonwebtoken';
 import { QueryRunner } from 'typeorm';
 import { IUser, IUserRepo } from '../entity';
 import UserUsecase from '../usecase';
@@ -80,11 +81,20 @@ describe('UserUsecase: Sign Up', () => {
 
 describe('UserUsecase: Sign In', () => {
     test('Success', async () => {
+        const mockSign = jest.spyOn(jwt, 'sign').mockReturnValue('mocked-token' as any);
+
+
         const result = await userUsecase.signIn({
             ...userDataMock
         });
 
         expect(result).toHaveProperty('token');
+        expect(result.token).toBe('mocked-token');
+        expect(mockSign).toHaveBeenCalledWith(
+            { user_id: 'abc-123'},
+            process.env.SECRET_KEY,
+            { expiresIn: 24 * 365 + 'h' },
+        )
     });
 
     test('PASSWORD_NOT_MATCH', async () => {
