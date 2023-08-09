@@ -9,6 +9,11 @@
 **ERD Diagram**
 ![Database Diagram](./docs/erd.png)
 
+**Sign In/Sign Up/Authorization**
+- User sensitive data (password) are encrypted At Rest using Bcrypt
+- after /sign-in call made, JSON Web token will be generated and will be used for every API calls into backend-service
+- API calls are secured with custom-made session middleware
+
 **Auction Flow**
 - when a new first-time bid is made, a bid is created with status "ON_GOING"
 - balance_history is also created with type "PAYMENT" to indicate a deducted balance from table User.Balance
