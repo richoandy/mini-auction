@@ -15,8 +15,8 @@
 - Validator and Documentation: Open API Validator (and Swagger)
 
 **Backend To Do**:
-1. docker-compose up: start up postgresql docker container
-2. npm run migration:up: migrate the tables
-3. npm run dev: start express application to start accepting http requests
-4. npm run start-cron: start cron jobs intance to run scheduler to finalize bids that has passed assigned time-period
+1. `docker-compose up`: start up postgresql docker container
+2. `npm run migration:up` : migrate the tables
+3. `npm run dev`: start express application to start accepting http requests
+4. `npm run start-cron`: start cron jobs intance to run scheduler to finalize bids that has passed assigned time-period
 

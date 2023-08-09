@@ -11,7 +11,7 @@
 
 **Sign In/Sign Up/Authorization**
 - User sensitive data (password) are encrypted At Rest using Bcrypt
-- after /sign-in call made, JSON Web token will be generated and will be used for every API calls into backend-service
+- after `/sign-in` call made, JSON Web token will be generated and will be used for every API calls into backend-service
 - API calls are secured with custom-made session middleware
 
 **Auction Flow**
