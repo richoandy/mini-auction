@@ -4,6 +4,7 @@ import { MigrationInterface, QueryRunner } from "typeorm"
 export class Bids1691262705566 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
         await queryRunner.query(`CREATE TABLE IF NOT EXISTS bids (
             id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
             bidder_id UUID REFERENCES users(id),

@@ -3,6 +3,7 @@ import { MigrationInterface, QueryRunner } from "typeorm"
 export class BalanceHistory1691263121379 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
         await queryRunner.query(`CREATE TABLE IF NOT EXISTS balance_history (
             id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
             user_id UUID REFERENCES users(id),

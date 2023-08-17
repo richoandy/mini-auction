@@ -8,6 +8,7 @@
         "start": "ts-node dist/app.js",
         "build": "tsc -p .",
         "test": "jest",
+        
         "migration:up": "ts-node -r tsconfig-paths/register --project ./tsconfig.json ./node_modules/.bin/typeorm migration:run -d database_migrations/migrate.ts",
         "migration:down": "ts-node -r tsconfig-paths/register --project ./tsconfig.json ./node_modules/.bin/typeorm migration:revert -d config/migration.config.ts",
         "start-cron": "ts-node cron_jobs/validateProduct.ts"
